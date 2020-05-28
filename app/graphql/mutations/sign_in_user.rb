@@ -21,7 +21,9 @@ module Mutations
       )
       token = crypt.encrypt_and_sign("user-id:#{user.id}")
 
+      context[:session][:token] = token
       { user: user, token: token }
+    
     end
   end
 end
