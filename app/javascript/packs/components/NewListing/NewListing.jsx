@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewListing = () => {
-  return <div>Hello world</div>;
+  return <h2>Hello world</h2>;
 };
 
 export default NewListing;

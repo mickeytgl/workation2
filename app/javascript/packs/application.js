@@ -3,6 +3,7 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 
+import "./application.css";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
