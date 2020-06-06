@@ -16,6 +16,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
 import Listings from "./components/Listings/Listings";
 import NewListing from "./components/NewListing/NewListing";
+import Navbar from "./components/Navbar/Navbar";
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql"
@@ -23,6 +24,7 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
+    <Navbar />
     <Router>
       <Switch>
         <Route exact={true} path="/" component={Home} />
