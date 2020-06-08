@@ -12,12 +12,12 @@ class Navbar extends React.Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <header class="bg-gray-900">
+      <header class="bg-gray-900 sm:flex sm:justify-between">
         <div class="flex justify-between items-center px-3 py-2">
           <div>
             <img class="h-8" src={logoinverted} alt="Workation" />
           </div>
-          <div>
+          <div class="sm:hidden">
             <button
               type="button"
               class="text-gray-500 focus:text-white focus:outline-none hover:text-white block"
@@ -38,22 +38,26 @@ class Navbar extends React.Component {
             </button>
           </div>
         </div>
-        <div class={`px-2 pt-2 pb-4 ${isOpen ? "" : "hidden"}`}>
+        <div
+          class={`px-2 pt-2 pb-4 ${
+            isOpen ? "" : "hidden"
+          } sm:block sm:flex sm:pt-4`}
+        >
           <a
             href="#"
-            class="px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded"
+            class="px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded sm:px-4"
           >
             List your property
           </a>
           <a
             href="#"
-            class="mt-1 px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded"
+            class="mt-1 sm:mt-0 px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded sm:px-4"
           >
             Trips
           </a>
           <a
             href="#"
-            class="mt-1 px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded"
+            class="mt-1 sm:mt-0 px-2 py-1 block text-white font-semibold hover:bg-gray-800 rounded sm:px-4"
           >
             Messages
           </a>
