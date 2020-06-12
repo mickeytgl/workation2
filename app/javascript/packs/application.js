@@ -25,7 +25,7 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <ListingCard />
+    <Navbar />
     <Router>
       <Switch>
         <Route exact={true} path="/" component={Home} />

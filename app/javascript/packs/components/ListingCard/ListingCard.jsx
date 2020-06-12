@@ -2,20 +2,6 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-const FIRST_LISTING = gql`
-  {
-    listing(id: 1) {
-      formattedPrice
-      imageUrl
-      reviewCount
-      beds
-      baths
-      rating
-      title
-    }
-  }
-`;
-
 const starRating = data => {
   var stars = [];
   for (var i = 0; i < 5; i++) {
@@ -34,34 +20,29 @@ const starRating = data => {
   return stars;
 };
 
-const ListingCard = () => {
-  const { loading, error, data } = useQuery(FIRST_LISTING);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+const ListingCard = ({ listing }) => {
   return (
-    <div className="m-12">
+    <div className="m-12 sm:w-80 ">
       <div className="relative pb-5/6 rounded-lg overflow-hidden">
         <img
           className="absolute h-full w-full object-cover shadow-md"
-          src={data.listing.imageUrl}
+          src={listing.imageUrl}
         />
       </div>
       <div className="relative px-4 -mt-16">
         <div className="p-6 bg-white rounded-lg shadow-lg">
           <div className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
-            {data.listing.beds} beds &bull; {data.listing.baths} baths
+            {listing.beds} beds &bull; {listing.baths} baths
           </div>
-          <h4 className="font-semibold text-lg truncate">
-            {data.listing.title}
-          </h4>
+          <h4 className="font-semibold text-lg truncate">{listing.title}</h4>
           <div>
-            {data.listing.formattedPrice}
+            {listing.formattedPrice}
             <span className="text-gray-600 text-sm"> / week</span>
           </div>
           <div className="mt-2 flex items-center">
-            {starRating(data.listing)}
+            {starRating(listing)}
             <span className="text-gray-600 text-sm ml-2">
-              {data.listing.reviewCount} reviews
+              {listing.reviewCount} reviews
             </span>
           </div>
         </div>
