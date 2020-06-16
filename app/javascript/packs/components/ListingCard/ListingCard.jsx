@@ -22,26 +22,26 @@ const starRating = data => {
 
 const ListingCard = ({ listing }) => {
   return (
-    <div className="m-12 sm:w-80 ">
-      <div className="relative pb-5/6 rounded-lg overflow-hidden">
+    <div className="w-full px-4 py-4 sm:w-80 sm:flex-shrink-0">
+      <div className="relative overflow-hidden rounded-lg pb-5/6">
         <img
-          className="absolute h-full w-full object-cover shadow-md"
+          className="absolute object-cover w-full h-full shadow-md"
           src={listing.imageUrl}
         />
       </div>
       <div className="relative px-4 -mt-16">
         <div className="p-6 bg-white rounded-lg shadow-lg">
-          <div className="text-gray-600 text-xs uppercase font-semibold tracking-wide">
+          <div className="text-xs font-semibold tracking-wide text-gray-600 uppercase">
             {listing.beds} beds &bull; {listing.baths} baths
           </div>
-          <h4 className="font-semibold text-lg truncate">{listing.title}</h4>
+          <h4 className="text-lg font-semibold truncate">{listing.title}</h4>
           <div>
             {listing.formattedPrice}
-            <span className="text-gray-600 text-sm"> / week</span>
+            <span className="text-sm text-gray-600"> / week</span>
           </div>
-          <div className="mt-2 flex items-center">
+          <div className="flex items-center mt-2">
             {starRating(listing)}
-            <span className="text-gray-600 text-sm ml-2">
+            <span className="ml-2 text-sm text-gray-600">
               {listing.reviewCount} reviews
             </span>
           </div>
